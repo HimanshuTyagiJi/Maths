@@ -22,7 +22,8 @@
   <div class="home-wrap">
     <!-- Top bar -->
     <div class="home-topbar">
-      <span class="brand-pill">📘 GK Learn Study</span>
+      <!-- ✅ CHANGE 1: College name in brand pill -->
+      <span class="brand-pill">🎓 BIT Meerut · MCA Project</span>
       <button class="lang-toggle" id="lang-btn" onclick="toggleLang()">
         <span id="lang-label">हिंदी</span> 🌐
       </button>
@@ -30,7 +31,12 @@
 
     <!-- Hero card -->
     <div class="hero-card" id="hero-card">
-      <div class="hero-badge" data-en="Government Exam Series" data-hi="सरकारी परीक्षा श्रृंखला">Government Exam Series</div>
+      <!-- ✅ CHANGE 2: Academic project badge -->
+      <div class="hero-badge"
+           data-en="Academic Project – Bharat Institute of Technology, Meerut"
+           data-hi="शैक्षणिक परियोजना – भारत इंस्टिट्यूट ऑफ टेक्नोलॉजी, मेरठ">
+        Academic Project – Bharat Institute of Technology, Meerut
+      </div>
       <div class="hero-icon">📐</div>
       <h1 class="hero-title">
         <span data-en="Maths Practice" data-hi="गणित अभ्यास">Maths Practice</span><br/>
@@ -63,9 +69,12 @@
       <button class="btn-start" onclick="startTest()">
         <span data-en="Start Test →" data-hi="परीक्षा शुरू करें →">Start Test →</span>
       </button>
-      <p class="home-note" data-en="Powered by GK Learn Study · Free Practice Portal"
-         data-hi="GK Learn Study द्वारा · निःशुल्क अभ्यास पोर्टल">
-        Powered by GK Learn Study · Free Practice Portal
+
+      <!-- ✅ CHANGE 3: Bottom note with names + GKLearnStudy -->
+      <p class="home-note"
+         data-en="Developed by Himanshu &amp; Maaz Khan | Powered by GKLearnStudy.in"
+         data-hi="Himanshu और Maaz Khan द्वारा निर्मित | GKLearnStudy.in द्वारा संचालित">
+        Developed by Himanshu | Powered by GKLearnStudy.in
       </p>
     </div>
   </div>
@@ -144,7 +153,7 @@
   <!-- Print header -->
   <div class="print-header print-only">
     <h2>Maths Practice Portal — Result Sheet</h2>
-    <p>GK Learn Study · Government Exam Preparation Series</p>
+    <p>Developed by Himanshu · BIT Meerut MCA Project · Powered by GKLearnStudy</p>
     <hr/>
   </div>
 
