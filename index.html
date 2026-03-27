@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maths Practice Portal | GK Learn Study</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Hind:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 1 — HOME
+══════════════════════════════════════════ -->
+<div id="screen-home" class="screen active">
+  <div class="home-bg">
+    <div class="bg-circle c1"></div>
+    <div class="bg-circle c2"></div>
+    <div class="bg-circle c3"></div>
+  </div>
+
+  <div class="home-wrap">
+    <!-- Top bar -->
+    <div class="home-topbar">
+      <span class="brand-pill">📘 GK Learn Study</span>
+      <button class="lang-toggle" id="lang-btn" onclick="toggleLang()">
+        <span id="lang-label">हिंदी</span> 🌐
+      </button>
+    </div>
+
+    <!-- Hero card -->
+    <div class="hero-card" id="hero-card">
+      <div class="hero-badge" data-en="Government Exam Series" data-hi="सरकारी परीक्षा श्रृंखला">Government Exam Series</div>
+      <div class="hero-icon">📐</div>
+      <h1 class="hero-title">
+        <span data-en="Maths Practice" data-hi="गणित अभ्यास">Maths Practice</span><br/>
+        <em data-en="Portal" data-hi="पोर्टल">Portal</em>
+      </h1>
+      <p class="hero-sub" data-en="25 Mixed Questions · MCQ Format · Instant Results with Full Solutions"
+         data-hi="25 मिश्रित प्रश्न · MCQ फॉर्मेट · पूर्ण हल के साथ तुरंत परिणाम">
+        25 Mixed Questions · MCQ Format · Instant Results with Full Solutions
+      </p>
+
+      <div class="topics-grid">
+        <div class="topic-chip">📊 <span data-en="Percentage" data-hi="प्रतिशत">Percentage</span></div>
+        <div class="topic-chip">💰 <span data-en="Profit & Loss" data-hi="लाभ और हानि">Profit & Loss</span></div>
+        <div class="topic-chip">⚖️ <span data-en="Ratio" data-hi="अनुपात">Ratio</span></div>
+        <div class="topic-chip">📈 <span data-en="Average" data-hi="औसत">Average</span></div>
+        <div class="topic-chip">🔢 <span data-en="Simplification" data-hi="सरलीकरण">Simplification</span></div>
+        <div class="topic-chip">🔤 <span data-en="Algebra" data-hi="बीजगणित">Algebra</span></div>
+        <div class="topic-chip">⏱ <span data-en="Time & Work" data-hi="समय और काम">Time & Work</span></div>
+        <div class="topic-chip">🚀 <span data-en="Speed & Distance" data-hi="गति और दूरी">Speed & Distance</span></div>
+        <div class="topic-chip">🏦 <span data-en="Interest" data-hi="ब्याज">Interest</span></div>
+        <div class="topic-chip">📐 <span data-en="Mensuration" data-hi="क्षेत्रमिति">Mensuration</span></div>
+      </div>
+
+      <div class="home-info-row">
+        <div class="info-pill">⏳ <span data-en="30 Minutes" data-hi="30 मिनट">30 Minutes</span></div>
+        <div class="info-pill">❓ <span data-en="25 Questions" data-hi="25 प्रश्न">25 Questions</span></div>
+        <div class="info-pill">🎯 <span data-en="4 Options Each" data-hi="4 विकल्प">4 Options Each</span></div>
+      </div>
+
+      <button class="btn-start" onclick="startTest()">
+        <span data-en="Start Test →" data-hi="परीक्षा शुरू करें →">Start Test →</span>
+      </button>
+      <p class="home-note" data-en="Powered by GK Learn Study · Free Practice Portal"
+         data-hi="GK Learn Study द्वारा · निःशुल्क अभ्यास पोर्टल">
+        Powered by GK Learn Study · Free Practice Portal
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 2 — QUIZ
+══════════════════════════════════════════ -->
+<div id="screen-quiz" class="screen">
+  <header class="quiz-header">
+    <div class="qh-left">
+      <span class="qh-brand">📐 <span data-en="Maths Portal" data-hi="गणित पोर्टल">Maths Portal</span></span>
+    </div>
+    <div class="qh-center">
+      <div class="q-progress-text" id="q-counter">Q 1 / 25</div>
+    </div>
+    <div class="qh-right">
+      <button class="lang-toggle small" onclick="toggleLang()">
+        <span id="lang-label-quiz">हिंदी</span> 🌐
+      </button>
+      <div class="timer-wrap" id="timer-wrap">
+        <svg class="timer-ring" viewBox="0 0 36 36">
+          <circle class="ring-bg" cx="18" cy="18" r="15.9"/>
+          <circle class="ring-fill" id="ring-fill" cx="18" cy="18" r="15.9"
+            stroke-dasharray="100 100" stroke-dashoffset="0"/>
+        </svg>
+        <span class="timer-text" id="timer-display">30:00</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress bar -->
+  <div class="quiz-progress-bar-wrap">
+    <div class="quiz-progress-bar" id="progress-bar" style="width:4%"></div>
+  </div>
+
+  <div class="quiz-body">
+    <!-- Question number dots -->
+    <div class="q-dots" id="q-dots"></div>
+
+    <div class="question-card" id="question-card">
+      <div class="q-top-row">
+        <span class="q-category-badge" id="q-category">Percentage</span>
+        <span class="q-marks-badge" data-en="+4 Marks" data-hi="+4 अंक">+4 Marks</span>
+      </div>
+      <p class="q-text" id="q-text">Loading question...</p>
+      <div class="options-grid" id="options-grid"></div>
+    </div>
+
+    <div class="quiz-bottom-bar">
+      <div class="qb-left">
+        <span class="answered-info" id="answered-count">
+          <span data-en="Answered:" data-hi="उत्तरित:">Answered:</span> 0/25
+        </span>
+      </div>
+      <div class="qb-right">
+        <button class="btn-skip" id="btn-skip" onclick="skipQuestion()">
+          <span data-en="Skip →" data-hi="छोड़ें →">Skip →</span>
+        </button>
+        <button class="btn-next" id="btn-next" onclick="nextQuestion()" disabled>
+          <span id="next-label" data-en="Next →" data-hi="अगला →">Next →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 3 — RESULT
+══════════════════════════════════════════ -->
+<div id="screen-result" class="screen">
+
+  <!-- Print watermark -->
+  <div class="print-watermark print-only">GK Learn Study</div>
+
+  <!-- Print header -->
+  <div class="print-header print-only">
+    <h2>Maths Practice Portal — Result Sheet</h2>
+    <p>GK Learn Study · Government Exam Preparation Series</p>
+    <hr/>
+  </div>
+
+  <div class="result-topbar no-print">
+    <div class="result-brand">📊 <span data-en="Your Result" data-hi="आपका परिणाम">Your Result</span></div>
+    <button class="lang-toggle small" onclick="toggleLang()">
+      <span id="lang-label-result">हिंदी</span> 🌐
+    </button>
+  </div>
+
+  <!-- Score summary -->
+  <div class="result-summary-wrap">
+    <div class="score-big-card">
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 120 120">
+          <circle class="sr-bg"   cx="60" cy="60" r="52"/>
+          <circle class="sr-fill" id="sr-fill" cx="60" cy="60" r="52"
+            stroke-dasharray="326.7 326.7" stroke-dashoffset="326.7"/>
+        </svg>
+        <div class="score-ring-inner">
+          <span class="score-big-num" id="score-num">0</span>
+          <span class="score-big-denom">/25</span>
+        </div>
+      </div>
+
+      <div class="score-breakdown">
+        <div class="sb-item correct">
+          <span class="sb-num" id="correct-count">0</span>
+          <span class="sb-label" data-en="Correct ✅" data-hi="सही ✅">Correct ✅</span>
+        </div>
+        <div class="sb-divider"></div>
+        <div class="sb-item wrong">
+          <span class="sb-num" id="wrong-count">0</span>
+          <span class="sb-label" data-en="Wrong ❌" data-hi="गलत ❌">Wrong ❌</span>
+        </div>
+        <div class="sb-divider"></div>
+        <div class="sb-item skip">
+          <span class="sb-num" id="skip-count">0</span>
+          <span class="sb-label" data-en="Skipped ⏭" data-hi="छोड़े ⏭">Skipped ⏭</span>
+        </div>
+      </div>
+
+      <div class="grade-banner" id="grade-banner"></div>
+    </div>
+  </div>
+
+  <!-- Action buttons -->
+  <div class="result-actions no-print">
+    <button class="btn-play-again" onclick="playAgain()">
+      🔄 <span data-en="Play Again" data-hi="फिर से खेलें">Play Again</span>
+    </button>
+    <button class="btn-print" onclick="printResult()">
+      🖨 <span data-en="Print Result" data-hi="प्रिंट करें">Print Result</span>
+    </button>
+  </div>
+
+  <!-- Detailed Solutions -->
+  <div class="solutions-wrap" id="solutions-wrap">
+    <h3 class="sol-section-title" data-en="📋 Detailed Solutions" data-hi="📋 विस्तृत हल">📋 Detailed Solutions</h3>
+    <div id="solutions-section"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
